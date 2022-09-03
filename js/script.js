@@ -45,6 +45,12 @@ const displayNews = (data) => {
   const medis = document.getElementById("medis");
   const viewArray = [];
   console.log(data);
+  const spinnerArea = document.getElementById("spinnerArea");
+  if (data.length === 0) {
+    spinnerArea.classList.remove("hidden");
+  } else {
+    spinnerArea.classList.add("hidden");
+  }
   medis.innerHTML = "";
   data.forEach((element) => {
     const { image_url, title, author, total_view, details, _id } = element;
