@@ -122,7 +122,6 @@ const displayNews = (data) => {
     medis.appendChild(makeDiv);
     console.log(element);
   });
-  console.log(sortView);
   const itemsCategory = document.getElementById("itemsCategory");
   itemsCategory.innerHTML = `
   <h2 class="text-xl text-slate-700 font-bold pl-5">
@@ -133,6 +132,7 @@ const displayNews = (data) => {
 };
 //Category ID end
 
+// Dainamik Id start
 const dainamikId = async (element) => {
   const url = ` https://openapi.programming-hero.com/api/news/${element}`;
   try {
