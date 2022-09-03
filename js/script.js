@@ -126,7 +126,9 @@ const displayNews = (data) => {
   const itemsCategory = document.getElementById("itemsCategory");
   itemsCategory.innerHTML = `
   <h2 class="text-xl text-slate-700 font-bold pl-5">
-        ${viewArray.length} Items found for Category Entertainment
+        ${
+          viewArray.length ? viewArray.length : "No News found!!!"
+        } Items found for Category Entertainment
         </h2>`;
 };
 //Category ID end
