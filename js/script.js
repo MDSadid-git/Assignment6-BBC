@@ -53,8 +53,14 @@ const displayNews = (data) => {
   }
   medis.innerHTML = "";
   data.forEach((element) => {
+    viewArray.push(element);
+  });
+
+  const sortView = viewArray.sort((a, b) => {
+    return b.total_view - a.total_view;
+  });
+  sortView.forEach((element) => {
     const { image_url, title, author, total_view, details, _id } = element;
-    viewArray.push(element.total_view);
     const makeDiv = document.createElement("div");
     makeDiv.innerHTML = `
     <div class="grid md:grid-cols-3 grid-cols-1 gap-4 bg-slate-100 rounded my-5">
@@ -116,9 +122,12 @@ const displayNews = (data) => {
     medis.appendChild(makeDiv);
     console.log(element);
   });
-  const me = viewArray.sort((a, b) => {
-    return b - a;
-  });
+  console.log(sortView);
+  const itemsCategory = document.getElementById("itemsCategory");
+  itemsCategory.innerHTML = `
+  <h2 class="text-xl text-slate-700 font-bold pl-5">
+        ${viewArray.length} Items found for Category Entertainment
+        </h2>`;
 };
 //Category ID end
 
