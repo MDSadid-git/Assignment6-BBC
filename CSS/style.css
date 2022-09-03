@@ -1,10 +1,5 @@
-.mei {
+.imgRudes {
   border-radius: 50%;
   width: 58px;
   height: 50px;
-}
-.paragrafEllipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

@@ -55,7 +55,7 @@ const displayNews = (data) => {
         <div class="">
           <div class="text-center">
             <img
-              src="${image_url}"
+              src="${image_url ? image_url : "Img Missing"}"
               alt="thumbnail"
               class=" mx-auto"
             />
@@ -65,10 +65,12 @@ const displayNews = (data) => {
           <div class="">
             <div class="card-details mx-5">
               <div class="top my-5">
-                <h2 class="text-4xl font-extrabold font">${title}</h2>
-                <div class='h-10'>
-                <p class=' paragrafEllipsis my-5'>
-                  ${details}
+                <h2 class="text-4xl font-extrabold text-slate-800">${
+                  title ? title : "Title missing"
+                }</h2>
+                <div class='h-10 '>
+                <p class=' paragrafEllipsis my-5 text-slate-700 truncate text-ellipsis'>
+                  ${details ? details : "Details missing"}
                 </p>
                 </div>
               </div>
@@ -77,10 +79,10 @@ const displayNews = (data) => {
                   <img
                     src="${author.img}"
                     alt="..."
-                    class="mei"
+                    class="imgRudes"
                   />
                   <div class="ml-3">
-                    <h2 class="font-semibold">${
+                    <h2 class="font-semibold text-black">${
                       author.name ? author.name : "Name missing"
                     }</h2>
                     <span class="font-extralight">${
@@ -90,13 +92,11 @@ const displayNews = (data) => {
                     }</span>
                   </div>
                 </div>
-                <div class="font-light">
-                  <i class="fa-regular fa-eye"></i>
+                <div class="text-black">
+                  <i class="fa-regular fa-eye font-extrabold"></i>
                   <span>${total_view ? total_view : "No view"}</span>
                 </div>
-                <div>${
-                  element.rating.badge ? element.rating.badge : "no Comment"
-                }</div>
+                
                 <div>
                   <label for="my-modal-6" class="btn modal-button" onclick="dainamikId('${_id}')"><i class="fa-solid fa-arrow-right"></i></label>
                 </div>
@@ -129,14 +129,30 @@ const dainamikId = async (element) => {
 
 const idUser = (data) => {
   const { title, author, total_view, details, image_url } = data;
-  const titleNews = document.getElementById("titleNews");
-  const paraNews = document.getElementById("paraNews");
   const modalNews = document.getElementById("modalNews");
-  titleNews.innerText = `${title}`;
-  paraNews.innerText = details;
   modalNews.innerHTML = `
-  <img src="" alt="">`;
-  console.log(data);
+          <img src="${image_url ? image_url : "Missing Img"}" alt="" >
+          <h3 class="font-bold text-lg mt-2">
+            ${title ? title : "Title missing"}
+          </h3>
+          <p class="py-4">
+            ${details ? details : "details missing"}
+          </p>
+          <div class="ml-3">
+                    <h2 class="font-semibold">${
+                      author.name ? author.name : "Name missing"
+                    }</h2>
+                    <span class="font-extralight">${
+                      author.published_date
+                        ? author.published_date
+                        : "Date missing"
+                    }</span>
+                  </div>
+          <div class="font-light ml-3">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>${total_view ? total_view : "No view"}</span>
+          </div>
+          `;
 };
 
 categoryId(8);
