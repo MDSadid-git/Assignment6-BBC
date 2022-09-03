@@ -47,7 +47,7 @@ const displayNews = (data) => {
   console.log(data);
   medis.innerHTML = "";
   data.forEach((element) => {
-    const { image_url, title, author, total_view, details } = element;
+    const { image_url, title, author, total_view, details, _id } = element;
     viewArray.push(element.total_view);
     const makeDiv = document.createElement("div");
     makeDiv.innerHTML = `
@@ -98,7 +98,7 @@ const displayNews = (data) => {
                   element.rating.badge ? element.rating.badge : "no Comment"
                 }</div>
                 <div>
-                  <i class="fa-solid fa-arrow-right"></i>
+                  <label for="my-modal-6" class="btn modal-button" onclick="dainamikId('${_id}')"><i class="fa-solid fa-arrow-right"></i></label>
                 </div>
               </div>
             </div>
@@ -114,4 +114,29 @@ const displayNews = (data) => {
     return b - a;
   });
 };
+//Category ID end
+
+const dainamikId = async (element) => {
+  const url = ` https://openapi.programming-hero.com/api/news/${element}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    idUser(data.data[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const idUser = (data) => {
+  const { title, author, total_view, details, image_url } = data;
+  const titleNews = document.getElementById("titleNews");
+  const paraNews = document.getElementById("paraNews");
+  const modalNews = document.getElementById("modalNews");
+  titleNews.innerText = `${title}`;
+  paraNews.innerText = details;
+  modalNews.innerHTML = `
+  <img src="" alt="">`;
+  console.log(data);
+};
+
 categoryId(8);
