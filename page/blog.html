@@ -95,65 +95,78 @@
     </header>
     <!-- header area end  -->
     <!-- main area start -->
-    <main class="container mx-auto">
-      <section>
-        <div class="collapse rounded-t-2xl border-2">
-          <input type="checkbox" class="peer" />
-          <div
-            class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <button class="btn btn-xs btn-outline btn-info">Click</button>
-            <h1>Click me to show/hide content</h1>
+    <main class="container mx-auto my-10">
+      <div>
+        <div
+          tabindex="0"
+          class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        >
+          <div class="collapse-title text-xl font-medium">
+            What is the difference between var let and const?
           </div>
-          <div
-            class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <p>hello</p>
-          </div>
-        </div>
-        <div class="collapse border-2">
-          <input type="checkbox" class="peer" />
-          <div
-            class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <button class="btn btn-xs btn-outline btn-info">Click</button>
-            <h1>Click me to show/hide content</h1>
-          </div>
-          <div
-            class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <p>hello</p>
+          <div class="collapse-content">
+            <p>
+              In the var tab, when you will run the code, you will see an error
+              as a is not defined because var variables are only accessible in
+              the function scope. <br />
+              In the let tab, when you run the code, you will see an error as i
+              is not defined because let variables are only accessible within
+              the block they are declared. <br />
+              In the const tab, when you run the code, you will see that x was
+              defined under the block was accessible, but when you try to access
+              x outside that block, you will get an error.
+            </p>
           </div>
         </div>
-        <div class="collapse border-2">
-          <input type="checkbox" class="peer" />
-          <div
-            class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <button class="btn btn-xs btn-outline btn-info">Click</button>
-            <h1>Click me to show/hide content</h1>
+        <div
+          tabindex="1"
+          class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        >
+          <div class="collapse-title text-xl font-medium">
+            What is the difference between arrow functions and regular
+            functions?
           </div>
-          <div
-            class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <p>hello</p>
-          </div>
-        </div>
-        <div class="collapse border-2 rounded-b-2xl">
-          <input type="checkbox" class="peer" />
-          <div
-            class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <button class="btn btn-xs btn-outline btn-info">Click</button>
-            <h1>Click me to show/hide content</h1>
-          </div>
-          <div
-            class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"
-          >
-            <p>hello</p>
+          <div class="collapse-content">
+            <p>
+              Unlike regular functions, arrow functions do not have their own
+              this . The value of this inside an arrow function remains the same
+              throughout the lifecycle of the function and is always bound to
+              the value of this in the closest non-arrow parent function.
+            </p>
           </div>
         </div>
-      </section>
+        <div
+          tabindex="2"
+          class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        >
+          <div class="collapse-title text-xl font-medium">
+            What is difference between map and forEach and filter?
+          </div>
+          <div class="collapse-content">
+            <p>
+              The main difference between this two methods is that forEach
+              allows you to change elements of original array and returns
+              undefined and map does not allow you to change original array and
+              intended for making new array based on original one.
+            </p>
+          </div>
+        </div>
+        <div
+          tabindex="3"
+          class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        >
+          <div class="collapse-title text-xl font-medium">
+            Why we use template string in javascript?
+          </div>
+          <div class="collapse-content">
+            <p>
+              Template literals provide an easy way to interpolate variables and
+              expressions into strings. The method is called string
+              interpolation.
+            </p>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- main area end -->
 
